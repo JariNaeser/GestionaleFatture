@@ -106,3 +106,5 @@ CREATE TABLE InvoiceTask(
 
 INSERT INTO UserType VALUES ("amministratore");
 INSERT INTO UserType VALUES ("impiegato");
+
+INSERT INTO User(password, username, nome, cognome, type_userType) VALUES ("087280357dfdc5a3177e17b7424c7dfb1eab2d08ba3bedeb243dc51d5c18dc88", "jari.naeser", "Jari", "Näser", "amministratore"); #pwd: test-salt
