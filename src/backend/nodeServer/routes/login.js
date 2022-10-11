@@ -12,7 +12,6 @@ module.exports = function(app, connection){
         // Escape and hash
         const username = req.body.username;
         const password = req.body.password;
-        var newToken = undefined;
 
         connection.query(`SELECT id FROM User WHERE username LIKE '${username}' AND password LIKE '${password}';`, function(error, results){
             if (error) throw error;
@@ -20,7 +19,7 @@ module.exports = function(app, connection){
             const userId = results[0] && results[0]['id'];
             if(userId){
                 // Generate new Token 
-                newToken = jwt.sign(
+                const newToken = jwt.sign(
                     { userId: userId, username: username, exp: Math.floor(Date.now() / 1000) + config.TTL },
                     config.ACCESS_TOKEN_SECRET
                 );
