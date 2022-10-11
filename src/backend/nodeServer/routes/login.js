@@ -20,8 +20,9 @@ module.exports = function(app, connection){
             if(userId){
                 // Generate new Token 
                 const newToken = jwt.sign(
-                    { userId: userId, username: username, exp: Math.floor(Date.now() / 1000) + config.TTL },
-                    config.ACCESS_TOKEN_SECRET
+                    { userId: userId, username: username },
+                    config.ACCESS_TOKEN_SECRET,
+                    { expiresIn: '1d' }
                 );
                 console.log("Here")
                 // Store new token
