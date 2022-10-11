@@ -20,11 +20,10 @@ CREATE TABLE User(
 );
 
 CREATE TABLE UserToken(
-	user_id INT NOT NULL,
+	user_id INT PRIMARY KEY,
 	creationDate DATETIME NOT NULL DEFAULT NOW(),
 	value VARCHAR(255) NOT NULL,
-	FOREIGN KEY(user_id) REFERENCES User(id) ON UPDATE CASCADE,
-	PRIMARY KEY(user_id, creationDate)
+	FOREIGN KEY(user_id) REFERENCES User(id) ON UPDATE CASCADE
 );
 
 CREATE TABLE BankAccount(
