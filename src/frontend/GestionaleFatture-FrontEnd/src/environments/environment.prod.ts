@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
   backendServerIP: 'http://localhost:2000/',
-  tokenName: 'GF_JWT_Token'
+  tokenName: 'GF_JWT_Token',
+  salt: '-salt'
 };

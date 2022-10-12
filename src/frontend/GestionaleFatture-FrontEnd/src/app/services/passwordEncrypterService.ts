@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
+import { environment } from '../../environments/environment.prod';
 import * as cryptoJS from 'crypto-js';
 
 @Injectable({
@@ -11,6 +11,6 @@ export class PasswordEncrypterService {
     constructor() { }
 
     public encrypt(password:string){
-        return cryptoJS.SHA256(password).toString();
+        return cryptoJS.SHA256(password + environment.salt).toString();
     }
 }

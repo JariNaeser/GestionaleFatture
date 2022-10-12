@@ -1,25 +1,20 @@
-<nav class="navbar navbar-expand-lg" style="background-color: lightgray;">
+<nav class="navbar navbar-expand-lg" style="background-color: #343434;">
     <div class="container-fluid">
-      <a class="navbar-brand" [routerLink]="['/']">Gestione Fatture</a>
+      <a class="navbar-brand text-white" [routerLink]="['/']">Gestione Fatture</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNav" style="right: 1em; position: absolute;">
         <ul class="navbar-nav">
-            <li class="nav-item" *ngIf="hasToken()">
-                <a [routerLink]="['/invoices']" class="nav-link active" aria-current="page">Fatture</a>
+            <li class="nav-item hoverNavElement" *ngIf="hasToken()">
+                <a [routerLink]="['/invoices']" class="nav-link active text-white" aria-current="page">Fatture</a>
             </li>
-
-
-
-
-            
-            <li class="nav-item" *ngIf="!hasToken()">
-              <a [routerLink]="['/login']" class="nav-link active" aria-current="page">Login</a>
+            <li class="nav-item hoverNavElement" *ngIf="!hasToken()">
+              <a [routerLink]="['/login']" class="nav-link active text-white" aria-current="page">Login</a>
             </li>
-            <li class="nav-item" *ngIf="hasToken()">
-                <a [routerLink]="['/logout']" class="nav-link active" aria-current="page">Logout</a>
+            <li class="nav-item hoverNavElement" *ngIf="hasToken()">
+                <a [routerLink]="['/logout']" class="nav-link active text-white" aria-current="page">Logout</a>
             </li>
         </ul>
       </div>

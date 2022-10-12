@@ -13,10 +13,11 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { HasTokenGuard } from './guards/hasTokenGuard';
 import { AuthService } from './services/auth.service';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './interceptor/tokenInterceptor';
 import { environment } from 'src/environments/environment.prod';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: InvoicesComponent, canActivate: [HasTokenGuard] },
@@ -50,6 +51,8 @@ const routes: Routes = [
       }
     }),
     FontAwesomeModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     //JwtHelperService,
