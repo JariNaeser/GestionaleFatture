@@ -2,8 +2,9 @@ const express = require('express');
 const app = express();
 const config = require("./config/config.js");
 const mysql = require('mysql');
+const cors = require("cors");
 
-
+// MySQL
 const connection = mysql.createConnection({
    host: config.DATABASE.HOST,
    user: config.DATABASE.USER,
@@ -12,34 +13,21 @@ const connection = mysql.createConnection({
    port: config.DATABASE.PORT
 });
 
-
-
-// connection.connect(function(err) {
-//    if (err) throw err;
-//    console.log("Connected to the database!");
-// });
-
-// const cors = require("cors");
-
-// var corsOptions = {
-//    origin: "http://localhost:8081"
-// };
- 
-// app.use(cors(corsOptions));
+// CORS
+var corsOptions = { origin: "*" };
+app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
-app.use(express.json()); /* bodyParser.json() is deprecated */
-
+app.use(express.json()); 
 // parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true })); /* bodyParser.urlencoded() is deprecated */
+app.use(express.urlencoded({ extended: true })); 
 
-// Routes
-
+// Default route
 app.get('/', function (req, res) {
    res.send('GestionaleFatture backend server');
 });
 
-//require('./routes/home.js')(app);
+// Routes
 require('./routes/login.js')(app, connection);
 require('./routes/invoices.js')(app, connection);
 

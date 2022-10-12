@@ -30,6 +30,7 @@ module.exports = function(app, connection){
                     if (error) throw error;
                 });
                 res.status(200).json({ accessToken: newToken });
+                console.log("Sent token: " + newToken);
             }else{
                 res.status(400).json({ status: 'Bad Request' });
             }
