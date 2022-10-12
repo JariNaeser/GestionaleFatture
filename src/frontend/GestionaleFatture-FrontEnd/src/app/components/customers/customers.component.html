@@ -1,0 +1,165 @@
+<div class="col-md-12" style="padding: 1em;">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-5">
+        <h1>Aziende</h1>
+        <h4>Aggiungi</h4>
+        <br>
+        <form>
+            <h6>Dati anagrafici</h6>
+            <hr>
+            <div class="row">
+                <div class="col">
+                  <input type="text" class="form-control" name="companyName" placeholder="Nome">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" name="companyPhoneNumber" placeholder="Numero di telefono">
+                </div>
+            </div>
+            <br>
+            <h6>Domicilio</h6>
+            <hr>
+            <div class="row">
+                <div class="col-md-4">
+                  <input type="text" class="form-control" name="companyStreet" placeholder="Via">
+                </div>
+                <div class="col-md-2">
+                  <input type="text" class="form-control" name="companyStreetNumber" placeholder="Numero">
+                </div>
+                <div class="col">
+                    <input type="number" class="form-control" name="companyPostalCode" placeholder="CAP">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" name="companyCity" placeholder="Città">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" name="companyCountry" placeholder="Paese">
+                </div>
+            </div>
+            <br>
+            <h6>Altro</h6>
+            <hr>
+            <div class="row">
+                <div class="col">
+                  <input type="file" class="form-control" name="companyIcon" placeholder="Immagine" disabled>
+                </div>
+                <div class="col">
+                  <input type="url" class="form-control" name="companyWebsite" placeholder="Sito web" disabled>
+                </div>
+            </div>
+        </form>
+        <br>
+        <div class="text-center">
+          <button type="button" class="btn btn-primary col-md-6">
+            <fa-icon style="padding-right: 5px;" [icon]="faPlus"></fa-icon>
+             Aggiungi azienda
+          </button>
+        </div>
+        <br>
+        <h4>Lista</h4>
+        <table class="table table-responsive">
+          <thead class="thead-dark">
+              <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Icona</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Sito web</th>
+                  <th scope="col">Fatturazioni</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>text</td>
+                  <td>text</td>
+                  <td>text</td>
+                  <td>text</td>
+                  <td>text</td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+        <div class="col-md-5">
+            <h1>Privati</h1>
+            <h4>Aggiungi</h4>
+            <br>
+            <form>
+                <h6>Dati anagrafici</h6>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                      <input type="text" class="form-control" name="privateName" placeholder="Nome">
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" name="privateSurname" placeholder="Cognome">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="privatePhoneNumber" placeholder="Numero di telefono">
+                    </div>
+                </div>
+                <br>
+                <h6>Domicilio</h6>
+                <hr>
+                <div class="row">
+                    <div class="col-md-4">
+                      <input type="text" class="form-control" name="privateStreet" placeholder="Via">
+                    </div>
+                    <div class="col-md-2">
+                      <input type="text" class="form-control" name="privateStreetNumber" placeholder="Numero">
+                    </div>
+                    <div class="col">
+                        <input type="number" class="form-control" name="privatePostalCode" placeholder="CAP">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="privateCity" placeholder="Città">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="privateCountry" placeholder="Paese">
+                    </div>
+                </div>
+                <br>
+                <h6>Altro</h6>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                      <input type="file" class="form-control" name="privateIcon" placeholder="Immagine" disabled>
+                    </div>
+                    <div class="col">
+                        <select class="form-control" disabled>
+                            <option>Azienda...</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <br>
+            <div class="text-center">
+              <button type="button" class="btn btn-primary col-md-6">
+                <fa-icon style="padding-right: 5px;" [icon]="faPlus"></fa-icon>
+                 Aggiungi privato
+              </button>
+            </div>
+            <br>
+            <h4>Lista</h4>
+            <table class="table table-responsive">
+              <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Icona</th>
+                    <th scope="col">Nome e cognome</th>
+                    <th scope="col">Azienda</th>
+                    <th scope="col">Fatturazioni</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>text</td>
+                      <td>text</td>
+                      <td>text</td>
+                      <td>text</td>
+                      <td>text</td>
+                  </tr>
+              </tbody>
+          </table>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
