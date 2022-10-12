@@ -73,16 +73,26 @@ CREATE TABLE WorksFor(
 	PRIMARY KEY(company_id, privatePerson_id)
 );
 
+CREATE TABLE InvoiceStatus(
+	name VARCHAR(10) PRIMARY KEY
+);
+
 CREATE TABLE Invoice(
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	creationDate DATETIME NOT NULL DEFAULT NOW(),
 	company_id INT,
 	privatePerson_id INT,
 	bankAccount_iban VARCHAR(34) NOT NULL,
+	invoiceStatus_name VARCHAR(10) NOT NULL,
 	user_id INT NOT NULL,
+	pdfFilename VARCHAR(255),
+	description TEXT,
+	firstRecallDate DATETIME,
+	secondRecallDate DATETIME,
 	FOREIGN KEY(company_id) REFERENCES Company(id) ON UPDATE CASCADE,
 	FOREIGN KEY(privatePerson_id) REFERENCES PrivatePerson(id) ON UPDATE CASCADE,
 	FOREIGN KEY(bankAccount_iban) REFERENCES BankAccount(iban) ON UPDATE CASCADE,
+	FOREIGN KEY(invoiceStatus_name) REFERENCES InvoiceStatus(name) ON UPDATE CASCADE,
 	FOREIGN KEY(user_id) REFERENCES User(id) ON UPDATE CASCADE
 );
 
@@ -105,5 +115,9 @@ CREATE TABLE InvoiceTask(
 
 INSERT INTO UserType VALUES ("amministratore");
 INSERT INTO UserType VALUES ("impiegato");
+
+INSERT INTO InvoiceStatus VALUES ("Da pagare");
+INSERT INTO InvoiceStatus VALUES ("In attesa");
+INSERT INTO InvoiceStatus VALUES ("Pagato");
 
 INSERT INTO User(password, username, nome, cognome, type_userType) VALUES ("087280357dfdc5a3177e17b7424c7dfb1eab2d08ba3bedeb243dc51d5c18dc88", "jari.naeser", "Jari", "Näser", "amministratore"); #pwd: test-salt
