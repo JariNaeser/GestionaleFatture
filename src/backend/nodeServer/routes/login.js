@@ -24,13 +24,11 @@ module.exports = function(app, connection){
                     config.ACCESS_TOKEN_SECRET,
                     { expiresIn: '1d' }
                 );
-                console.log("Here")
                 // Store new token
                 connection.query(`INSERT INTO UserToken VALUES(${userId}, NOW(), '${newToken}') ON DUPLICATE KEY UPDATE creationDate = NOW(), value = '${newToken}';`, function(error, results){
                     if (error) throw error;
                 });
                 res.status(200).json({ accessToken: newToken });
-                console.log("Sent token: " + newToken);
             }else{
                 res.status(400).json({ status: 'Bad Request' });
             }

@@ -18,7 +18,7 @@ import { TokenInterceptor } from './interceptor/tokenInterceptor';
 import { environment } from 'src/environments/environment.prod';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
-import { ClientsComponent } from './components/clients/clients.component';
+import { CustomersComponent } from './components/customers/customers.component';
 
 const routes: Routes = [
   { path: '', component: InvoicesComponent, canActivate: [HasTokenGuard] },
@@ -27,6 +27,7 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent, canActivate: [HasTokenGuard] },
   { path: 'errorPage', component: ErrorPageComponent },
   { path: 'invoices', component: InvoicesComponent, canActivate: [HasTokenGuard] },
+  { path: 'customers', component: CustomersComponent, canActivate: [HasTokenGuard] },
   { path: '**', component: InvoicesComponent, canActivate: [HasTokenGuard] },
 ];
 
@@ -38,7 +39,7 @@ const routes: Routes = [
     NavbarComponent,
     InvoicesComponent,
     LogoutComponent,
-    ClientsComponent
+    CustomersComponent
   ],
   imports: [
     BrowserModule,
