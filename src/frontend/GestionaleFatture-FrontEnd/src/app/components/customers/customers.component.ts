@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faCog } from '@fortawesome/free-solid-svg-icons';
 
 declare var $ :any;
 
@@ -11,10 +11,20 @@ declare var $ :any;
 export class CustomersComponent implements OnInit {
 
   faPlus = faPlus;
+  faCog = faCog;
 
   constructor() { }
 
   ngOnInit(): void {
+    
+  }
+
+  addCompany(){
+    
+  }
+
+  addPrivatePerson(){
+
   }
 
 }

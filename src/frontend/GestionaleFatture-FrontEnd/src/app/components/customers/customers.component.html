@@ -1,13 +1,92 @@
 <div class="col-md-12" style="padding: 1em;">
     <div class="row">
       <div class="col-md-1"></div>
-      <div class="col-md-5">
+      <div class="col-md-5" style="padding-right: 2em;">
         <h1>Aziende</h1>
-        <h4>Aggiungi</h4>
-        <br>
+        <hr>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" onclick="$('#addCompanyModal').modal('show')">
+          <fa-icon style="padding-right: 5px;" [icon]="faPlus"></fa-icon>
+          Aggiungi azienda
+        </button>
+        <hr>
+        <h4>Lista</h4>
+        <table class="table table-responsive">
+          <thead class="thead-dark">
+              <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Icona</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Sito web</th>
+                  <th scope="col">Fatturazioni</th>
+                  <th class="text-center" scope="col">Modifica</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>text</td>
+                  <td>text</td>
+                  <td>text</td>
+                  <td><a href="https://google.com" target="_blank">Link</a></td>
+                  <td>text</td>
+                  <td class="text-center"><fa-icon [icon]="faCog"></fa-icon></td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+        <div class="col-md-5" style="padding-left: 2em;">
+            <h1>Privati</h1>
+            <hr>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" onclick="$('#addPrivatePersonModal').modal('show')">
+              <fa-icon style="padding-right: 5px;" [icon]="faPlus"></fa-icon>
+              Aggiungi privato
+            </button>
+            <hr>
+            <h4>Lista</h4>
+            <table class="table table-responsive">
+              <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Icona</th>
+                    <th scope="col">Nome e cognome</th>
+                    <th scope="col">Azienda</th>
+                    <th scope="col">Fatturazioni</th>
+                    <th class="text-center" scope="col">Modifica</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>text</td>
+                      <td>text</td>
+                      <td>text</td>
+                      <td>text</td>
+                      <td>text</td>
+                      <td class="text-center">
+                        <fa-icon [icon]="faCog"></fa-icon>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
+<!-- Modals -->
+
+<!-- Add company -->
+<div class="modal fade" id="addCompanyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Aggiungi azienda</h5>
+        <button id='closeModal' type="button" class="close" data-bs-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
         <form>
             <h6>Dati anagrafici</h6>
-            <hr>
             <div class="row">
                 <div class="col">
                   <input type="text" class="form-control" name="companyName" placeholder="Nome">
@@ -17,15 +96,17 @@
                 </div>
             </div>
             <br>
-            <h6>Domicilio</h6>
-            <hr>
+            <h6>Posizione</h6>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-8">
                   <input type="text" class="form-control" name="companyStreet" placeholder="Via">
                 </div>
-                <div class="col-md-2">
+                <div class="col">
                   <input type="text" class="form-control" name="companyStreetNumber" placeholder="Numero">
                 </div>
+            </div>
+            <br>
+            <div class="row">    
                 <div class="col">
                     <input type="number" class="form-control" name="companyPostalCode" placeholder="CAP">
                 </div>
@@ -38,128 +119,97 @@
             </div>
             <br>
             <h6>Altro</h6>
-            <hr>
             <div class="row">
                 <div class="col">
                   <input type="file" class="form-control" name="companyIcon" placeholder="Immagine" disabled>
                 </div>
+            </div>
+            <br>
+            <div class="row">    
                 <div class="col">
                   <input type="url" class="form-control" name="companyWebsite" placeholder="Sito web" disabled>
                 </div>
             </div>
         </form>
-        <br>
-        <div class="text-center">
-          <button type="button" class="btn btn-primary col-md-6">
-            <fa-icon style="padding-right: 5px;" [icon]="faPlus"></fa-icon>
-             Aggiungi azienda
-          </button>
-        </div>
-        <br>
-        <h4>Lista</h4>
-        <table class="table table-responsive">
-          <thead class="thead-dark">
-              <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Icona</th>
-                  <th scope="col">Nome</th>
-                  <th scope="col">Sito web</th>
-                  <th scope="col">Fatturazioni</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr>
-                  <td>text</td>
-                  <td>text</td>
-                  <td>text</td>
-                  <td>text</td>
-                  <td>text</td>
-              </tr>
-          </tbody>
-      </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="$('#addCompanyModal').modal('hide')">Chiudi</button>
+        <button type="button" class="btn btn-primary" (click)="addCompany()">Aggiungi</button>
+      </div>
     </div>
-        <div class="col-md-5">
-            <h1>Privati</h1>
-            <h4>Aggiungi</h4>
-            <br>
-            <form>
-                <h6>Dati anagrafici</h6>
-                <hr>
-                <div class="row">
-                    <div class="col">
-                      <input type="text" class="form-control" name="privateName" placeholder="Nome">
-                    </div>
-                    <div class="col">
-                      <input type="text" class="form-control" name="privateSurname" placeholder="Cognome">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" name="privatePhoneNumber" placeholder="Numero di telefono">
-                    </div>
-                </div>
-                <br>
-                <h6>Domicilio</h6>
-                <hr>
-                <div class="row">
-                    <div class="col-md-4">
-                      <input type="text" class="form-control" name="privateStreet" placeholder="Via">
-                    </div>
-                    <div class="col-md-2">
-                      <input type="text" class="form-control" name="privateStreetNumber" placeholder="Numero">
-                    </div>
-                    <div class="col">
-                        <input type="number" class="form-control" name="privatePostalCode" placeholder="CAP">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" name="privateCity" placeholder="Città">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" name="privateCountry" placeholder="Paese">
-                    </div>
-                </div>
-                <br>
-                <h6>Altro</h6>
-                <hr>
-                <div class="row">
-                    <div class="col">
-                      <input type="file" class="form-control" name="privateIcon" placeholder="Immagine" disabled>
-                    </div>
-                    <div class="col">
-                        <select class="form-control" disabled>
-                            <option>Azienda...</option>
-                        </select>
-                    </div>
-                </div>
-            </form>
-            <br>
-            <div class="text-center">
-              <button type="button" class="btn btn-primary col-md-6">
-                <fa-icon style="padding-right: 5px;" [icon]="faPlus"></fa-icon>
-                 Aggiungi privato
-              </button>
-            </div>
-            <br>
-            <h4>Lista</h4>
-            <table class="table table-responsive">
-              <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Icona</th>
-                    <th scope="col">Nome e cognome</th>
-                    <th scope="col">Azienda</th>
-                    <th scope="col">Fatturazioni</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                      <td>text</td>
-                      <td>text</td>
-                      <td>text</td>
-                      <td>text</td>
-                      <td>text</td>
-                  </tr>
-              </tbody>
-          </table>
-        </div>
-        <div class="col-md-1"></div>
+  </div>
+</div>
+
+<!-- Add individual -->
+<div class="modal fade" id="addPrivatePersonModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Aggiungi privato</h5>
+        <button id='closeModal' type="button" class="close" data-bs-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <h6>Dati anagrafici</h6>
+          <div class="row">
+              <div class="col">
+                <input type="text" class="form-control" name="privateName" placeholder="Nome">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" name="privateSurname" placeholder="Cognome">
+              </div>
+          </div>
+          <br>
+          <div class="row">
+              <div class="col">
+                  <input type="text" class="form-control" name="privatePhoneNumber" placeholder="Numero di telefono">
+              </div>
+          </div>
+          <br>
+          <h6>Domicilio</h6>
+          <div class="row">
+              <div class="col-md-8">
+                <input type="text" class="form-control" name="privateStreet" placeholder="Via">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" name="privateStreetNumber" placeholder="Numero">
+              </div>
+          </div>
+          <br>
+          <div class="row">
+              <div class="col">
+                  <input type="number" class="form-control" name="privatePostalCode" placeholder="CAP">
+              </div>
+              <div class="col">
+                  <input type="text" class="form-control" name="privateCity" placeholder="Città">
+              </div>
+              <div class="col">
+                  <input type="text" class="form-control" name="privateCountry" placeholder="Paese">
+              </div>
+          </div>
+          <br>
+          <h6>Altro</h6>
+          <div class="row">
+              <div class="col">
+                <input type="file" class="form-control" name="privateIcon" placeholder="Immagine" disabled>
+              </div>
+          </div>
+          <br>
+          <div class="row">
+              <div class="col">
+                  <select class="form-control" disabled>
+                      <option>Azienda...</option>
+                  </select>
+              </div>
+          </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="$('#addPrivatePersonModal').modal('hide')">Chiudi</button>
+        <button type="button" class="btn btn-primary" (click)="addPrivatePerson()">Aggiungi</button>
+      </div>
     </div>
+  </div>
 </div>
