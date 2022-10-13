@@ -119,3 +119,8 @@ INSERT INTO InvoiceStatus VALUES ("Pagato");
 INSERT INTO User(password, username, nome, cognome, type_userType) VALUES ("087280357dfdc5a3177e17b7424c7dfb1eab2d08ba3bedeb243dc51d5c18dc88", "jari.naeser", "Jari", "Näser", "amministratore"); #pwd: test-salt
 
 INSERT INTO `GestionaleFatture`.`BankAccount` (`iban`, `holder`, `street`, `streetNumber`, `postalCode`, `city`, `country`, `bankName`, `swift`) VALUES ('CH3909000000615242605', 'Jari Näser', 'Via Mer-Zarei', '12', '6965', 'Cadro', 'Switzerland', 'Postfinance Bank', 'POFICHBEXXX');
+
+# Test data
+
+INSERT INTO `GestionaleFatture`.`Company` (`name`, `phoneNumber`, `street`, `streetNumber`, `postalCode`, `city`, `country`, `websiteURL`, `iconPath`) VALUES ('TestCompany', '+41791234567', 'Via Lugano ', '1', '6900', 'Lugano', 'Svizzera', 'https://www.lugano.ch/', 'lvga.png');
+INSERT INTO `GestionaleFatture`.`PrivatePerson` (`name`, `surname`, `phoneNumber`, `street`, `streetNumber`, `postalCode`, `city`, `country`, `company_id`) VALUES ('Franco', 'Neri', '+41761829382', 'Via Trevano ', '3A', '6963', 'Canobbio', 'Svizzera', '1');

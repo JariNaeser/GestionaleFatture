@@ -2,6 +2,7 @@ module.exports = {
     //General
     SERVER_PORT: 2000,
     HASH_SALT: '-salt',
+    MEDIA_FOLDER_PATH: './../../media/',
     //Database
     DATABASE: {
         USER: 'GF_Admin',

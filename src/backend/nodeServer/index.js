@@ -30,6 +30,7 @@ app.get('/', function (req, res) {
 // Routes
 require('./routes/login.js')(app, connection);
 require('./routes/invoices.js')(app, connection);
+require('./routes/customers.js')(app, connection);
 
 const server = app.listen(config.SERVER_PORT, () => console.log(`Server running on port ${config.SERVER_PORT}...`));
 
