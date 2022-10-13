@@ -121,3 +121,5 @@ INSERT INTO InvoiceStatus VALUES ("In attesa");
 INSERT INTO InvoiceStatus VALUES ("Pagato");
 
 INSERT INTO User(password, username, nome, cognome, type_userType) VALUES ("087280357dfdc5a3177e17b7424c7dfb1eab2d08ba3bedeb243dc51d5c18dc88", "jari.naeser", "Jari", "Näser", "amministratore"); #pwd: test-salt
+
+INSERT INTO `GestionaleFatture`.`BankAccount` (`iban`, `holder`, `street`, `streetNumber`, `postalCode`, `city`, `country`, `bankName`, `swift`) VALUES ('CH3909000000615242605', 'Jari Näser', 'Via Mer-Zarei', '12', '6965', 'Cadro', 'Switzerland', 'Postfinance Bank', 'POFICHBEXXX');
