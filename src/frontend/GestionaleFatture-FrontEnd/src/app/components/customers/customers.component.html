@@ -23,14 +23,17 @@
               </tr>
           </thead>
           <tbody>
-              <tr>
-                  <td>text</td>
-                  <td>text</td>
-                  <td>text</td>
-                  <td><a href="https://google.com" target="_blank">Link</a></td>
-                  <td>text</td>
-                  <td class="text-center"><fa-icon [icon]="faCog"></fa-icon></td>
-              </tr>
+            <tr *ngIf="this.companies === undefined">
+              <td class="text-center" colspan="6">Nessun'azienda trovata.</td>
+            </tr>
+                <tr *ngFor="let company of this.companies">
+                    <td>{{ company.id }}</td>
+                    <td>{{ company.iconPath ? company.iconPath : '-' }}</td>
+                    <td>{{ company.name }}</td>
+                    <td><a href="{{ company.websiteURL }}" target="_blank">Link</a></td>
+                    <td>-</td>
+                    <td class="text-center"><fa-icon [icon]="faCog"></fa-icon></td>
+                </tr>              
           </tbody>
       </table>
     </div>
@@ -56,16 +59,21 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr>
-                      <td>text</td>
-                      <td>text</td>
-                      <td>text</td>
-                      <td>text</td>
-                      <td>text</td>
-                      <td class="text-center">
-                        <fa-icon [icon]="faCog"></fa-icon>
-                      </td>
+                  <tr *ngIf="this.privatePersons === undefined">
+                    <td class="text-center" colspan="6">Nessun privato trovato.</td>
                   </tr>
+
+                    <tr *ngFor="let privatePerson of this.privatePersons">
+                        <td>{{ privatePerson.id }}</td>
+                        <td>{{ privatePerson.iconPath ? privatePerson.iconPath : '-' }}</td>
+                        <td>{{ privatePerson.name + ' ' + privatePerson.surname }}</td>
+                        <td>{{ findCompanyById(privatePerson.company_id) ? findCompanyById(privatePerson.company_id).name : '-' }}</td>
+                        <td>-</td>
+                        <td class="text-center">
+                          <fa-icon [icon]="faCog"></fa-icon>
+                        </td>
+                    </tr>
+             
               </tbody>
           </table>
         </div>
