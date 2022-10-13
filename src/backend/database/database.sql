@@ -1,4 +1,6 @@
+DROP DATABASE GestionaleFatture;
 CREATE DATABASE GestionaleFatture;
+
 USE GestionaleFatture;
 
 CREATE USER 'GF_Admin'@'localhost' IDENTIFIED BY 'cd0dc2d19261fa53a9c75d6daa68bb13d087474bbd9bab55ea9e1072ef9c53f7'; # plain: admin-salt
@@ -62,15 +64,9 @@ CREATE TABLE PrivatePerson(
 	postalCode INT NOT NULL,
 	city VARCHAR(50) NOT NULL,
 	country VARCHAR(50) NOT NULL,
-	iconPath VARCHAR(255)
-);
-
-CREATE TABLE WorksFor(
-	company_id INT NOT NULL,
-	privatePerson_id INT NOT NULL,
-	FOREIGN KEY(company_id) REFERENCES Company(id) ON UPDATE CASCADE,
-	FOREIGN KEY(privatePerson_id) REFERENCES PrivatePerson(id) ON UPDATE CASCADE,
-	PRIMARY KEY(company_id, privatePerson_id)
+	iconPath VARCHAR(255),
+	company_id INT,
+	FOREIGN KEY(company_id) REFERENCES Company(id) ON UPDATE CASCADE
 );
 
 CREATE TABLE InvoiceStatus(
