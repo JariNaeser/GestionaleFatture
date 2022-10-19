@@ -2,7 +2,7 @@ module.exports = {
     //General
     SERVER_PORT: 2000,
     HASH_SALT: '-salt',
-    MEDIA_FOLDER_PATH: './../../media/',
+    MEDIA_FOLDER_PATH: '/Users/jarinaser/Desktop/Jari/Development/GestionaleFatture/src/backend/media/',
     //Database
     DATABASE: {
         USER: 'GF_Admin',

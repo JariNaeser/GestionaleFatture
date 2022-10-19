@@ -28,7 +28,10 @@
             </tr>
                 <tr *ngFor="let company of this.companies">
                     <td>{{ company.id }}</td>
-                    <td>{{ company.iconPath ? company.iconPath : '-' }}</td>
+                    <td>
+                      {{ company.iconPath }}
+                      <!-- <img src="file://{{ environment.fsImageFolderPath + 'user' + company.id + '/' + company.iconPath }}"> -->
+                    </td>
                     <td>{{ company.name }}</td>
                     <td><a href="{{ company.websiteURL }}" target="_blank">Link</a></td>
                     <td>-</td>
@@ -97,45 +100,45 @@
             <h6>Dati anagrafici</h6>
             <div class="row">
                 <div class="col">
-                  <input type="text" class="form-control" name="companyName" placeholder="Nome">
+                  <input type="text" class="form-control" name="companyName" placeholder="Nome" required>
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" name="companyPhoneNumber" placeholder="Numero di telefono">
+                    <input type="text" class="form-control" name="companyPhoneNumber" placeholder="Numero di telefono" required>
                 </div>
             </div>
             <br>
             <h6>Posizione</h6>
             <div class="row">
                 <div class="col-md-8">
-                  <input type="text" class="form-control" name="companyStreet" placeholder="Via">
+                  <input type="text" class="form-control" name="companyStreet" placeholder="Via" required>
                 </div>
                 <div class="col">
-                  <input type="text" class="form-control" name="companyStreetNumber" placeholder="Numero">
+                  <input type="text" class="form-control" name="companyStreetNumber" placeholder="Numero" required>
                 </div>
             </div>
             <br>
             <div class="row">    
                 <div class="col">
-                    <input type="number" class="form-control" name="companyPostalCode" placeholder="CAP">
+                    <input type="number" class="form-control" name="companyPostalCode" placeholder="CAP" required>
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" name="companyCity" placeholder="Città">
+                    <input type="text" class="form-control" name="companyCity" placeholder="Città" required>
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" name="companyCountry" placeholder="Paese">
+                    <input type="text" class="form-control" name="companyCountry" placeholder="Paese" required>
                 </div>
             </div>
             <br>
             <h6>Altro</h6>
             <div class="row">
                 <div class="col">
-                  <input type="file" class="form-control" name="companyIcon" placeholder="Immagine" disabled>
+                  <input type="file" class="form-control" name="companyIcon" placeholder="Immagine">
                 </div>
             </div>
             <br>
             <div class="row">    
                 <div class="col">
-                  <input type="url" class="form-control" name="companyWebsite" placeholder="Sito web" disabled>
+                  <input type="url" class="form-control" name="companyWebsite" placeholder="Sito web">
                 </div>
             </div>
         </form>

@@ -33,6 +33,10 @@ module.exports = function(app, connection){
             res.json(result);
         });
     });
+
+    app.put('/addCompany', authenticateToken, function (req, res){
+        //Add company
+    });
     
 };
 

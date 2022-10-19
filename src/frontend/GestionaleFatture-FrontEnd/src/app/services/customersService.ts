@@ -29,4 +29,11 @@ export class CustomersService {
         return this.http.get(environment.backendServerIP + `getPrivatePerson/${id}`);
     }
 
+    public addCompany(newCompanyData):Observable<any>{
+        return this.http.put(
+            environment.backendServerIP + `addCompany`,
+            newCompanyData
+        );
+    }
+
 }
