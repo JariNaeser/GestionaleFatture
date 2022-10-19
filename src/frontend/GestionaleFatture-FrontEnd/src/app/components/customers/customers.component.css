@@ -2,3 +2,7 @@
     background-color: #343434;
     color: white;
 }
+
+.error-message{
+    font-size: 12px;
+}

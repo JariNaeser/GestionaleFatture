@@ -30,6 +30,9 @@ export class CustomersService {
     }
 
     public addCompany(newCompanyData):Observable<any>{
+
+        console.log(newCompanyData);
+
         return this.http.put(
             environment.backendServerIP + `addCompany`,
             newCompanyData

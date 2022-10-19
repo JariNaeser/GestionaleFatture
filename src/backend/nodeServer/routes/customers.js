@@ -36,6 +36,8 @@ module.exports = function(app, connection){
 
     app.put('/addCompany', authenticateToken, function (req, res){
         //Add company
+        var data = JSON.parse(req.body);
+        // Add to DB
     });
     
 };

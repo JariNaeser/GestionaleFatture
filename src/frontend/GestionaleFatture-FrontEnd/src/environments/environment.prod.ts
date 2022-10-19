@@ -3,5 +3,6 @@ export const environment = {
   backendServerIP: 'http://localhost:2000/',
   tokenName: 'GF_JWT_Token',
   salt: '-salt',
-  fsImageFolderPath: '/Users/jarinaser/Desktop/Jari/Development/GestionaleFatture/src/backend/media/images/'
+  fsImageFolderPath: '/Users/jarinaser/Desktop/Jari/Development/GestionaleFatture/src/backend/media/images/',
+  noIconFileName: 'no_icon.png'
 };
