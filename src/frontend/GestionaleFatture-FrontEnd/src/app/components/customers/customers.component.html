@@ -4,8 +4,8 @@
      <div class="col-md-6">
         <div class="col-md-12">
            <h1>Aziende</h1>
-           <h1 class="text-warning">Aggiungere azienda db</h1>
-           <h1 class="text-warning">Aggiungere risposta aggiunta azienda. OK/Error</h1>
+           <!-- <h1 class="text-warning">Aggiungere azienda db</h1>
+           <h1 class="text-warning">Aggiungere risposta aggiunta azienda. OK/Error</h1> -->
            <hr>
            <!-- Button trigger modal -->
            <button type="button" class="btn btn-primary" onclick="$('#addCompanyModal').modal('show')">
@@ -28,7 +28,7 @@
               </thead>
               <tbody>
                  <tr *ngIf="this.companies === undefined">
-                    <td class="text-center" colspan="6">Nessun'azienda trovata.</td>
+                    <td class="text-center" colspan="7">Nessun'azienda trovata.</td>
                  </tr>
                  <tr *ngFor="let company of this.companies">
                     <td>{{ company.id }}</td>
@@ -77,7 +77,7 @@
               </thead>
               <tbody>
                  <tr *ngIf="this.privatePersons === undefined">
-                    <td class="text-center" colspan="6">Nessun privato trovato.</td>
+                    <td class="text-center" colspan="7">Nessun privato trovato.</td>
                  </tr>
                  <tr *ngFor="let privatePerson of this.privatePersons">
                     <td>{{ privatePerson.id }}</td>
@@ -310,3 +310,33 @@
      </div>
   </div>
 </div>
+<!-- Alerts - feedback messages -->
+<div class="alert alert-dismissible fade show myPositiveFeedback" role="alert">
+   <div class="row">
+      <div class="col-md-2">
+         <fa-icon [icon]="faCircleCheck" class="text-success alertIcon"></fa-icon>
+      </div>
+      <div class="col-md-10">
+         <strong>Successo</strong><br>
+         L'azienda è stata aggiunta correttamente.
+      </div>
+   </div>
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+     <span aria-hidden="true">&times;</span>
+   </button>
+ </div>
+
+ <div class="alert alert-dismissible fade show myNegativeFeedback" role="alert">
+   <div class="row">
+      <div class="col-md-2">
+         <fa-icon [icon]="faCircleXmark" class="text-danger alertIcon"></fa-icon>
+      </div>
+      <div class="col-md-10">
+         <strong>Errore</strong><br>
+         C'è stato un errore nell'aggiunta dell'azienda.
+      </div>
+   </div>
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+     <span aria-hidden="true">&times;</span>
+   </button>
+ </div>

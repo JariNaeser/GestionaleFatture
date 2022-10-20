@@ -36,7 +36,19 @@ module.exports = function(app, connection){
 
     app.put('/addCompany', authenticateToken, function (req, res){
         //Add company
-        var data = JSON.parse(req.body);
+        var data = req.body;
+        console.log(data);
+        //Sanitize data 
+        var name = escape(data.companyName); 
+        var phoneNumber = escape(data.companyPhoneNumber); 
+        var street = escape(data.companyStreet); 
+        var streetNumber = escape(data.companyStreetNumber); 
+        var postalCode = escape(data.companyPostalCode); 
+        var city = escape(data.companyCity); 
+        var country = escape(data.companyCountry); 
+        // Load icon to fs
+        var icon = escape(data.companyIcon); 
+        var website = escape(data.companyWebsite); 
         // Add to DB
     });
     

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faPlus, faCog, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faCog, faTrashAlt, faCircleCheck, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { CustomersService } from 'src/app/services/customersService';
 import { environment } from 'src/environments/environment.prod';
 
@@ -16,6 +16,8 @@ export class CustomersComponent implements OnInit {
   faPlus = faPlus;
   faCog = faCog;
   faTrashAlt = faTrashAlt;
+  faCircleCheck = faCircleCheck;
+  faCircleXmark = faCircleXmark;
   // General
   companies;
   privatePersons;
@@ -48,10 +50,6 @@ export class CustomersComponent implements OnInit {
 
   addCompany(){
     //Get input data
-
-    //Split icon path
-    var splitted = (this.addCompanyIcon) ? this.addCompanyIcon.split('\\') : environment.noIconFileName;
-
     this.customersService.addCompany({
       companyName: this.addCompanyName,
       companyPhoneNumber: this.addCompanyPhoneNumber,
@@ -60,8 +58,8 @@ export class CustomersComponent implements OnInit {
       companyPostalCode: this.addCompanyPostalCode,
       companyCity: this.addCompanyCity,
       companyCountry: this.addCompanyCountry,
-      companyIcon: (splitted.length > 0) ? splitted[splitted.length - 1] : splitted[0],
-      companyWebsite: this.addCompanyWebsite
+      companyIcon: this.addCompanyIcon ? this.addCompanyIcon : environment.noIconFileName,
+      companyWebsite: this.addCompanyWebsite ? this.addCompanyWebsite : 'no_website'
     }).subscribe(data => {
       console.log("data " + data);
     }, error => {
