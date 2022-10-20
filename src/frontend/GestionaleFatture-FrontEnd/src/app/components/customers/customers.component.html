@@ -43,7 +43,7 @@
                         <td class="text-center">
                            <fa-icon [icon]="faCog"></fa-icon>
                         </td>
-                        <td class="text-center">
+                        <td class="text-center" (click)="openCompanyDeleteModal(company)">
                            <fa-icon [icon]="faTrashAlt"></fa-icon>
                         </td>
                      </tr>
@@ -103,6 +103,7 @@
      <div class="col-md-3">
          <!-- Alerts - feedback messages -->
          <!-- Azienda -->
+         <!-- Aggiunta -->
          <div style="display: none;" id="aziendaSuccessAlert" class="alert alert-dismissible fade show myFeedback myPositiveFeedback" role="alert">
             <div class="row">
                <div class="col-md-2">
@@ -126,6 +127,36 @@
                <div class="col-md-10">
                   <strong>Errore</strong><br>
                   C'è stato un errore nell'aggiunta dell'azienda.
+               </div>
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <!-- Rimozione -->
+         <div style="display: none;" id="aziendaDeletedSuccessAlert" class="alert alert-dismissible fade show myFeedback myPositiveFeedback" role="alert">
+            <div class="row">
+               <div class="col-md-2">
+                  <fa-icon [icon]="faCircleCheck" class="text-success alertIcon"></fa-icon>
+               </div>
+               <div class="col-md-10">
+                  <strong>Successo</strong><br>
+                  L'azienda è stata eliminata correttamente.
+               </div>
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+
+         <div style="display: none;" id="aziendaDeletedErrorAlert" class="alert alert-dismissible fade show myFeedback myNegativeFeedback" role="alert">
+            <div class="row">
+               <div class="col-md-2">
+                  <fa-icon [icon]="faCircleXmark" class="text-danger alertIcon"></fa-icon>
+               </div>
+               <div class="col-md-10">
+                  <strong>Errore</strong><br>
+                  C'è stato un errore nell'eliminazione dell'azienda.
                </div>
             </div>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -375,4 +406,23 @@
      </div>
   </div>
 </div>
-
+<!-- Delete Company -->
+<div id="deleteCompanyModal" class="modal" tabindex="-1" role="dialog">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title">Eliminazione Azienda</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+         <p>Sei sicuro di voler eliminare l'azienda {{ this.companyToDelete.name }}?</p>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" onclick="$('#deleteCompanyModal').modal('hide')">Esci</button>
+         <button type="button" class="btn btn-secondary btn-danger" data-dismiss="modal" (click)="this.deleteCompany()">Elimina</button>
+       </div>
+     </div>
+   </div>
+</div>

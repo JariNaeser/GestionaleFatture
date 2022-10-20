@@ -36,4 +36,10 @@ export class CustomersService {
         );
     }
 
+    public deleteCompany(id : number):Observable<any>{
+        return this.http.delete(
+            environment.backendServerIP + `deleteCompany/${id}`
+        );
+    }
+
 }

@@ -24,6 +24,10 @@ export class CustomersComponent implements OnInit {
   environment = environment;
   isAddCompanyOk = Array(7);
   isAddPrivatePersonOk = Array(7);
+  companyToDelete = {
+    name: '',
+    id: -1
+  }
   // Add company modal
   addCompanyDisabled = true;
   addCompanyName;
@@ -123,6 +127,26 @@ export class CustomersComponent implements OnInit {
 
   addPrivatePersonInputsOk(){
     return !this.isAddCompanyOk.includes(false);
+  }
+
+  openCompanyDeleteModal(company){
+    this.companyToDelete.id = company.id;
+    this.companyToDelete.name = company.name;
+    $('#deleteCompanyModal').modal('show');
+  }
+
+  deleteCompany(){
+    //Get input data
+    this.customersService.deleteCompany(this.companyToDelete.id).subscribe(data => {
+      $('#aziendaDeletedSuccessAlert').css('display', 'block');
+    }, error => {
+      $('#aziendaDeletedErrorAlert').css('display', 'block');
+    });
+    this.companyToDelete = {
+      name: '',
+      id: -1
+    };
+    this.getCompanies();
   }
 
 }
