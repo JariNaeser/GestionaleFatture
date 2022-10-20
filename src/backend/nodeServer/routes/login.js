@@ -13,7 +13,7 @@ module.exports = function(app, connection){
         const username = req.body.username;
         const password = req.body.password;
 
-        connection.query(`SELECT id FROM User WHERE username LIKE '${username}' AND password LIKE '${password}';`, function(error, results){
+        connection.query(`SELECT id FROM User WHERE username LIKE ? AND password LIKE ?;`, [username, password], function(error, results){
             if (error) throw error;
             //Check if user has been found
             const userId = results[0] && results[0]['id'];
@@ -25,7 +25,7 @@ module.exports = function(app, connection){
                     { expiresIn: '1d' }
                 );
                 // Store new token
-                connection.query(`INSERT INTO UserToken VALUES(${userId}, NOW(), '${newToken}') ON DUPLICATE KEY UPDATE creationDate = NOW(), value = '${newToken}';`, function(error, results){
+                connection.query(`INSERT INTO UserToken VALUES(?, NOW(), ?) ON DUPLICATE KEY UPDATE creationDate = NOW(), value = ?;`, [userId, newToken, newToken], function(error, results){
                     if (error) throw error;
                 });
                 res.status(200).json({ accessToken: newToken });

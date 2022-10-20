@@ -13,7 +13,7 @@ module.exports = function(app, connection){
 
     app.get('/getInvoice/:id', authenticateToken, function (req, res){
         id = escape(req.params.id);
-        connection.query(`SELECT * FROM Invoice WHERE id = ${id};`, (error, result) => {
+        connection.query(`SELECT * FROM Invoice WHERE id = ?;`, [id], (error, result) => {
             if(error) throw error;
             res.json(result);
         });
