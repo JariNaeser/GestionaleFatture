@@ -61,16 +61,16 @@ export class CustomersComponent implements OnInit {
       companyIcon: this.addCompanyIcon ? this.addCompanyIcon : environment.noIconFileName,
       companyWebsite: this.addCompanyWebsite ? this.addCompanyWebsite : 'no_website'
     }).subscribe(data => {
-      console.log("data " + data);
+      $('#aziendaSuccessAlert').css('display', 'block');
     }, error => {
-      console.log("error " + error);
+      $('#aziendaErrorAlert').css('display', 'block');
     });
-  
+    $('#addCompanyModal').modal('hide');
     this.getCompanies();
   }
 
   addPrivatePerson(){
-
+    // TODO
     this.getPrivatePersons();
   }
 

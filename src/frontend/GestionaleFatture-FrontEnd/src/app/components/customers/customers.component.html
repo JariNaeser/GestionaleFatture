@@ -14,40 +14,42 @@
            </button>
            <hr>
            <h4>Lista</h4>
-           <table class="table table-responsive">
-              <thead class="thead-dark">
-                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Icona</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Sito web</th>
-                    <th scope="col">Fatturazioni</th>
-                    <th class="text-center" scope="col">Modifica</th>
-                    <th class="text-center" scope="col">Elimina</th>
-                 </tr>
-              </thead>
-              <tbody>
-                 <tr *ngIf="this.companies === undefined">
-                    <td class="text-center" colspan="7">Nessun'azienda trovata.</td>
-                 </tr>
-                 <tr *ngFor="let company of this.companies">
-                    <td>{{ company.id }}</td>
-                    <td>
-                       {{ company.iconPath }}
-                       <!-- <img src="file://{{ environment.fsImageFolderPath + 'user' + company.id + '/' + company.iconPath }}"> -->
-                    </td>
-                    <td>{{ company.name }}</td>
-                    <td><a href="{{ company.websiteURL }}" target="_blank">Link</a></td>
-                    <td>-</td>
-                    <td class="text-center">
-                       <fa-icon [icon]="faCog"></fa-icon>
-                    </td>
-                    <td class="text-center">
-                       <fa-icon [icon]="faTrashAlt"></fa-icon>
-                    </td>
-                 </tr>
-              </tbody>
-           </table>
+           <div class="table-responsive">
+               <table class="table">
+                  <thead class="thead-dark">
+                     <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Icona</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Sito web</th>
+                        <th scope="col">Fatturazioni</th>
+                        <th class="text-center" scope="col">Modifica</th>
+                        <th class="text-center" scope="col">Elimina</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr *ngIf="this.companies === undefined">
+                        <td class="text-center" colspan="7">Nessun'azienda trovata.</td>
+                     </tr>
+                     <tr *ngFor="let company of this.companies">
+                        <td>{{ company.id }}</td>
+                        <td>
+                           {{ company.iconPath }}
+                           <!-- <img src="file://{{ environment.fsImageFolderPath + 'user' + company.id + '/' + company.iconPath }}"> -->
+                        </td>
+                        <td>{{ company.name }}</td>
+                        <td><a href="{{ company.websiteURL }}" target="_blank">Link</a></td>
+                        <td>-</td>
+                        <td class="text-center">
+                           <fa-icon [icon]="faCog"></fa-icon>
+                        </td>
+                        <td class="text-center">
+                           <fa-icon [icon]="faTrashAlt"></fa-icon>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
         </div>
         <br>
         <br>
@@ -63,41 +65,104 @@
            </button>
            <hr>
            <h4>Lista</h4>
-           <table class="table table-responsive">
-              <thead class="thead-dark">
-                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Icona</th>
-                    <th scope="col">Nome e cognome</th>
-                    <th scope="col">Azienda</th>
-                    <th scope="col">Fatturazioni</th>
-                    <th class="text-center" scope="col">Modifica</th>
-                    <th class="text-center" scope="col">Elimina</th>
-                 </tr>
-              </thead>
-              <tbody>
-                 <tr *ngIf="this.privatePersons === undefined">
-                    <td class="text-center" colspan="7">Nessun privato trovato.</td>
-                 </tr>
-                 <tr *ngFor="let privatePerson of this.privatePersons">
-                    <td>{{ privatePerson.id }}</td>
-                    <td>{{ privatePerson.iconPath ? privatePerson.iconPath : '-' }}</td>
-                    <td>{{ privatePerson.name + ' ' + privatePerson.surname }}</td>
-                    <td>{{ findCompanyById(privatePerson.company_id) ? findCompanyById(privatePerson.company_id).name : '-' }}</td>
-                    <td>-</td>
-                    <td class="text-center">
-                       <fa-icon [icon]="faCog"></fa-icon>
-                    </td>
-                    <td class="text-center">
-                       <fa-icon [icon]="faTrashAlt"></fa-icon>
-                    </td>
-                 </tr>
-              </tbody>
-           </table>
+           <div class="table-responsive">
+               <table class="table">
+                  <thead class="thead-dark">
+                     <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Icona</th>
+                        <th scope="col">Nome e cognome</th>
+                        <th scope="col">Azienda</th>
+                        <th scope="col">Fatturazioni</th>
+                        <th class="text-center" scope="col">Modifica</th>
+                        <th class="text-center" scope="col">Elimina</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr *ngIf="this.privatePersons === undefined">
+                        <td class="text-center" colspan="7">Nessun privato trovato.</td>
+                     </tr>
+                     <tr *ngFor="let privatePerson of this.privatePersons">
+                        <td>{{ privatePerson.id }}</td>
+                        <td>{{ privatePerson.iconPath ? privatePerson.iconPath : '-' }}</td>
+                        <td>{{ privatePerson.name + ' ' + privatePerson.surname }}</td>
+                        <td>{{ findCompanyById(privatePerson.company_id) ? findCompanyById(privatePerson.company_id).name : '-' }}</td>
+                        <td>-</td>
+                        <td class="text-center">
+                           <fa-icon [icon]="faCog"></fa-icon>
+                        </td>
+                        <td class="text-center">
+                           <fa-icon [icon]="faTrashAlt"></fa-icon>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
         </div>
      </div>
-     <!-- <div class="col-md-1"></div>
-        </div> -->
+     <div class="col-md-3">
+         <!-- Alerts - feedback messages -->
+         <!-- Azienda -->
+         <div style="display: none;" id="aziendaSuccessAlert" class="alert alert-dismissible fade show myFeedback myPositiveFeedback" role="alert">
+            <div class="row">
+               <div class="col-md-2">
+                  <fa-icon [icon]="faCircleCheck" class="text-success alertIcon"></fa-icon>
+               </div>
+               <div class="col-md-10">
+                  <strong>Successo</strong><br>
+                  L'azienda è stata aggiunta correttamente.
+               </div>
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+
+         <div style="display: none;" id="aziendaErrorAlert" class="alert alert-dismissible fade show myFeedback myNegativeFeedback" role="alert">
+            <div class="row">
+               <div class="col-md-2">
+                  <fa-icon [icon]="faCircleXmark" class="text-danger alertIcon"></fa-icon>
+               </div>
+               <div class="col-md-10">
+                  <strong>Errore</strong><br>
+                  C'è stato un errore nell'aggiunta dell'azienda.
+               </div>
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <!-- Privati -->
+         <div style="display: none;" id="privatoSuccessAlert" class="alert alert-dismissible fade show myFeedback myPositiveFeedback" role="alert">
+            <div class="row">
+               <div class="col-md-2">
+                  <fa-icon [icon]="faCircleCheck" class="text-success alertIcon"></fa-icon>
+               </div>
+               <div class="col-md-10">
+                  <strong>Successo</strong><br>
+                  Il privato è stato aggiunto correttamente.
+               </div>
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+
+         <div style="display: none;" id="privatoErrorAlert" class="alert alert-dismissible fade show myFeedback myNegativeFeedback" role="alert">
+            <div class="row">
+               <div class="col-md-2">
+                  <fa-icon [icon]="faCircleXmark" class="text-danger alertIcon"></fa-icon>
+               </div>
+               <div class="col-md-10">
+                  <strong>Errore</strong><br>
+                  C'è stato un errore nell'aggiunta del privato.
+               </div>
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+     </div>
   </div>
   <!-- Modals -->
   <!-- Add company -->
@@ -310,33 +375,4 @@
      </div>
   </div>
 </div>
-<!-- Alerts - feedback messages -->
-<div class="alert alert-dismissible fade show myPositiveFeedback" role="alert">
-   <div class="row">
-      <div class="col-md-2">
-         <fa-icon [icon]="faCircleCheck" class="text-success alertIcon"></fa-icon>
-      </div>
-      <div class="col-md-10">
-         <strong>Successo</strong><br>
-         L'azienda è stata aggiunta correttamente.
-      </div>
-   </div>
-   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-     <span aria-hidden="true">&times;</span>
-   </button>
- </div>
 
- <div class="alert alert-dismissible fade show myNegativeFeedback" role="alert">
-   <div class="row">
-      <div class="col-md-2">
-         <fa-icon [icon]="faCircleXmark" class="text-danger alertIcon"></fa-icon>
-      </div>
-      <div class="col-md-10">
-         <strong>Errore</strong><br>
-         C'è stato un errore nell'aggiunta dell'azienda.
-      </div>
-   </div>
-   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-     <span aria-hidden="true">&times;</span>
-   </button>
- </div>

@@ -7,18 +7,18 @@
     font-size: 12px;
 }
 
-.myPositiveFeedback{
-    position: fixed;
-    bottom: 1em;
+.myFeedback{
+    position: absolute;
     right: 1em;
+    /* display: inline-block; */
+}
+
+.myPositiveFeedback{
     border: #5cb85c 2px solid;
     border-left: #5cb85c 10px solid;   
 }
 
 .myNegativeFeedback{
-    position: fixed;
-    bottom: 1em;
-    right: 1em;
     border: #d9534f 2px solid;
     border-left: #d9534f 10px solid;   
 }

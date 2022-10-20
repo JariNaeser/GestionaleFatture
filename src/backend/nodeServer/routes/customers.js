@@ -50,6 +50,10 @@ module.exports = function(app, connection){
         var icon = escape(data.companyIcon); 
         var website = escape(data.companyWebsite); 
         // Add to DB
+        connection.query(`INSERT INTO Company(name, phoneNumber, street, streetNumber, postalCode, city, country, iconPath, websiteURL) VALUES ('${name}', '${phoneNumber}', '${street}', '${streetNumber}', ${postalCode}, '${city}', '${country}', '${icon}', '${website}')`, (error, result) => {
+            if(error) throw error;
+            res.json(result);
+        });
     });
     
 };
